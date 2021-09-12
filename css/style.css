@@ -726,8 +726,8 @@ h1, h2, h3, h4, h5, h6 {
   cursor: pointer;
   margin: 0 3px;
   border-radius: 50%;
-  border: 7px solid rgba(255, 255, 255, 0.55);
-  background-color: rgba(255, 255, 255, 0.55);
+  border: 7px solid rgba(116, 78, 78, 0.55);
+  background-color: rgba(26, 25, 25, 0.55);
 }
 
 .orid_chal .orid_chal_right #slaid1:checked ~ .kadoves label[for="slaid1"] {
