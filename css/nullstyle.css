@@ -1,0 +1,87 @@
+@charset "UTF-8";
+* {
+  /* * указывает что это идет обращение ко всему html доку*/
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+*, *:before, *:after {
+  /*меняет подсчет ширины блока чтобы было проще верстать*/
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+:focus, :active {
+  outline: none;
+}
+
+/*убираются линии обводки у некоторрых браузеров*/
+a:focus, a:active {
+  outline: none;
+}
+
+nav, footer, header, aside {
+  display: block;
+}
+
+/*Это делает популярные теги блочными*/
+html, body {
+  /*уравнивает поведение шрифтов и элекмонтов для разных браузеров. Прим - запрещ 
+    увеличен шрифта на айфонах*/
+  height: 100%;
+  width: 100%;
+  font-size: 100%;
+  line-height: 1;
+  font-size: 14px;
+  -ms-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+input, button, textarea {
+  font-family: inherit;
+}
+
+/*чтобы теги наследовали семейства шрифта,
+ они по умолчанию этого не делают */
+/*параметры разным тегам которые убирают особенноэтих тегов в разных браузерах,
+отступы лишние декторативные элементы, отступы*/
+input::-ms-clear {
+  display: none;
+}
+
+/*Убирает в поле ввода крестик в IE*/
+button {
+  cursor: pointer;
+}
+
+button::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+
+/*Убирает лишние отступы и пробелы в частности и в кнопках браузера firefox*/
+a, a:visited {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+ul li {
+  list-style: none;
+}
+
+img {
+  vertical-align: top;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-size: inherit;
+  font-weight: 400;
+}
+
+/*Обнуляем заголовки*/
+/*-------------------------*/

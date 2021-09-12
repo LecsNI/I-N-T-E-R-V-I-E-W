@@ -1,0 +1,506 @@
+@import "nullstyle.scss";//Файл обнуления
+@import "fonts_style.scss";//Файл шрифтов
+
+$st_txt_color: #000000; //
+
+$sec_txt_color: #FFFFFF;
+
+$third_txt_color: rgba(1, 1, 1, 0.37);
+
+@mixin  stand_set_txt($ff, $fs, $lh, $ct){ 
+    font-family: $ff;
+    font-size: $fs;
+    line-height: $lh;
+    color: $ct;
+}
+
+@mixin flex_time ($disflx, $flxdir, $alit, $jstcon) {
+    display: $disflx;
+    flex-direction: $flxdir;
+    align-items: $alit;
+    justify-content: $jstcon;
+}
+
+@mixin btn_set ($brd_rad, $btn_bcg, $btc_col){
+    border-radius: $brd_rad;
+    background: $btn_bcg;
+    color: $btc_col;
+}
+
+%h2_txt_weight {
+    font-weight: 550;
+}
+
+%p_txt_weight {
+    font-weight: 400;
+}
+
+%btn_txt_weight {
+    font-weight: 500;
+}
+
+
+.container {
+	padding: 0 auto;
+	margin: 0 auto;
+	width: 1440px;
+	max-width: 1440px;
+}
+
+.header {
+	width: 1440px;
+	height: 900px;
+	background-image: url(../image/Top_boots.png);
+	background-repeat: no-repeat;
+	background-size: 100%;
+	padding: 0 auto;
+	margin: 0 auto;
+	max-width: 1440px;
+
+	.header_background {
+	  
+		.menu {
+			@include flex_time (flex, row, none, space-between );
+			padding: 26px 0 0 25px;
+			.menu_logo {
+			}
+			.menu-burger {
+				.menu-btn{ //Задаем стили нашему label и span внутри него, чтобы он стал кнопкой в виде бургера//
+					display: flex;
+					align-items: center;
+					position: absolute;
+					top: 20px;
+					right:255px;
+					width: 40px; //ширина полосок//
+					height: 26px;
+					cursor: pointer;
+					z-index: 1;
+				}
+				   
+				.menu-btn > span,
+				.menu-btn > span::before,
+				.menu-btn > span::after {
+					display: block;
+					position: absolute;
+					width: 100%;
+					height: 2px;
+					background-color: $sec_txt_color;
+					transition-duration: .25s;
+				}
+				.menu-btn > span::before {
+					content: '';
+					top: -8px;
+				}
+				.menu-btn > span::after {
+					content: '';
+					top: 8px;
+				}
+
+				.menubox{ //Далее задаем стили для нашего меню, то бишь ul списку//
+					display: block;
+					position: fixed;
+					visibility: hidden;
+					top: 0;
+					right: -100%; //Это даёт задать с какой стороны меню//
+					width: 225px; //Ширина менюшки //
+					height: 100%;
+					margin: 0;
+					padding: 80px 0;
+					list-style: none;
+					background-color: $sec_txt_color; //Цвет менюшки//
+					box-shadow: 1px 0px 6px rgba(0, 0, 0, .2);
+					transition-duration: .25s;
+				  }
+
+				.menu-item { //Стили пунктов меню//
+					display: block;
+					padding: 12px 24px;
+					color: #333;
+					font-family: 'Roboto', sans-serif;
+					font-size: 20px;
+					font-weight: 600;
+					text-decoration: none;
+					transition-duration: .25s;
+				}
+				.menu-item:hover {
+					background-color: #CFD8DC;
+				}
+
+				#menu-toggle{ //скрываем стандартный чекбокс в виде галочки//
+					opacity: 0;
+				}
+
+				#menu-toggle:checked ~ .menu-btn > span{ //анимация меню//
+					transform: rotate(45deg);
+				}
+				#menu-toggle:checked ~ .menu-btn > span::before{
+					top: 0;
+					transform: rotate(0);
+				}
+				#menu-toggle:checked ~ .menu-btn > span::after{
+					top: 0;
+					transform: rotate(90deg);
+				}
+				#menu-toggle:checked ~ .menubox{
+					visibility: visible;
+					right: 0; //Панель справа//
+				}
+			}
+		}
+	}
+}
+
+
+.about_us {
+	@include flex_time (flex, row, none, none );
+
+}
+.about_us_img_top {
+	margin: 70px 80px 0 0;
+}
+.about_us_text {
+	margin: 60px 0px 0 0;
+	width: 405px;
+	.about_us_h2 {
+		@include stand_set_txt("SF Pro Display Regular", 36px, 43px, $st_txt_color)
+		@extend %h2_txt_weight;
+		margin: 0 0 15px 0;
+	}
+	.about_us_txt {
+		@include stand_set_txt("SF Pro Display Regular", 14px, 17px, $st_txt_color);
+		@extend %p_txt_weight;
+		margin: 0 0 27px 0;
+	}
+	.about_us_btn {
+		height: 35px;
+		width: 120px;
+		@include stand_set_txt("SF Pro Display Regular", 18px, 19px, $st_txt_color);
+		@include btn_set(none,  $sec_txt_color, $st_txt_color);
+		@extend %btn_txt_weight;
+		&:active {
+			color: grey;
+		}
+	}
+}
+
+
+
+.about_us_img_bottom {
+	width: 679px;
+	height: 350px;
+	position: relative;
+	left: 760px;
+	top: -80px;
+}
+.first_project {
+	@include flex_time (flex, row, center, center );
+	background-color: $st_txt_color;
+	height: 750px;
+	margin: 36px 0 0 0;
+	.first_project_text {
+		text-align: right;
+		margin: -240px 80px 0 125px;
+
+		.first_project_txt {
+			@include stand_set_txt("SF Pro Display Regular", 17px, 19px, $sec_txt_color);
+			@extend %btn_txt_weight;
+			width: 405px;
+			&:first-child {
+				margin: 265px 0 217px 0;
+
+			}
+			&:nth-child(4) {
+				@include stand_set_txt("SF Pro Display Regular", 14px, 17px, $sec_txt_color)
+				
+			}
+		}
+		.first_project_h2 {
+			@include stand_set_txt("SF Pro Display Regular", 36px, 43px, $sec_txt_color)
+			font-weight: 300;
+			margin: 15px 0 20px 0;
+	
+		}
+		.first_project_btn {
+			height: 35px;
+			width: 150px;
+			@include stand_set_txt("SF Pro Display Regular", 18px, 19px, $sec_txt_color);
+			@include btn_set(none,  $st_txt_color, $sec_txt_color);
+			@extend %btn_txt_weight;	
+			margin: 15px 0 0 0;
+			&:active {
+				color: grey;
+			}
+		}
+
+		
+	}
+	.first_project_img {
+		margin: 23px 0 0 0;
+	}
+}
+
+.second_project {
+	background-image: url(../image/Project_title_02.png);
+	background-repeat: no-repeat;
+	width: 1440px;
+	height: 1130px;
+	.second_project_text {
+		width: 405px;
+		margin: 0px 0 0 93px;
+		padding: 345px 0 0 0;
+		.second_project_txt {
+			@include stand_set_txt("SF Pro Display Regular", 17px, 19px, $sec_txt_color);
+			@extend %btn_txt_weight;
+			&:nth-child(2) {
+				margin: 15px 0 0 0;
+			}
+			&:nth-child(4) {
+				@include stand_set_txt("SF Pro Display Regular", 14px, 17px, $sec_txt_color);
+				font-weight: 500;
+			}
+
+		}
+		.second_project_h2 {
+			@include stand_set_txt("SF Pro Display Regular", 36px, 43px, $sec_txt_color);
+			font-weight: 300;
+			margin: 25px 0 25px 0;
+
+		}
+		.second_project_btn {
+			height: 35px;
+			width: 150px;
+			@include stand_set_txt("SF Pro Display Regular", 18px, 19px, $sec_txt_color);
+			@include btn_set(none,  none, $sec_txt_color);
+			@extend %btn_txt_weight;
+			margin: 15px 0 0 -10px;
+			&:active {
+				color: grey;
+			}
+		}
+	}
+	.second_project_player_btn {
+		display: flex;
+		flex-wrap: wrap;
+		flex-direction: row;
+		align-items: center;
+		@include stand_set_txt("SF Pro Display Regular", 18px, 19px, $sec_txt_color);
+		float: right;
+		margin: 185px 37px 0 0;
+		.second_project_player_btn_one {
+			color: $sec_txt_color;
+			&:active {
+				color: grey;
+			}
+		}
+		.second_project_player_btn_two {
+			color: $sec_txt_color;
+			&:active {
+				color: grey;
+			}
+		}
+	
+	}
+}
+
+
+
+.last_project {
+	@include flex_time (flex, row, center, center );
+	flex-direction: column;
+	margin: -145px 0 0 0;
+	.last_project_text_top {
+		@include flex_time (flex, row, center, center );
+		margin: 0 405px 32px 0;
+		.last_project_text_top_txt {
+			@include stand_set_txt("SF Pro Display Regular", 18px, 19px, $st_txt_color);
+			@extend %btn_txt_weight;
+			&:first-child {
+				padding: 0 85px 0 0;
+			}
+		}
+	}
+	.last_project_bottom {
+		@include flex_time (flex, row, center, center );
+		.last_project_text {
+			text-align: right;
+			.last_project_text_h2 {
+				@include stand_set_txt("SF Pro Display Regular", 36px, 43px, $st_txt_color);
+				font-weight: 500;
+				padding: 270px 5px 0px 0;
+			}
+			.last_project_text_txt {
+				@include stand_set_txt("SF Pro Display Regular", 14px, 17px, $st_txt_color);
+				padding: 20px 0 0px 0;
+				margin: 0 0 0 130px;
+
+			}
+			.last_project_btn {
+				height: 35px;
+				width: 150px;
+				@include stand_set_txt("SF Pro Display Regular", 18px, 19px, $st_txt_color);
+				@include btn_set(none,  none, $st_txt_color);
+				@extend %btn_txt_weight;
+				margin: 20px 0 0 0;
+				&:active {
+					color: grey;
+				}
+			}
+		}
+		.last_project_img {
+			padding: 0 0 0 80px;
+		}
+	}
+}
+
+.orid_chal {
+	@include flex_time (flex, row, none, none );
+	padding: 170px 0 0 0;
+	.orid_chal_lf {
+		.orid_chal_lf_top_text {
+			.orid_chal_lf_top_txt {
+				@include stand_set_txt("SF Pro Display Regular", 18px, 19px, $st_txt_color);
+				padding: 0 0 70px 360px;
+				&:first-child {
+					padding: 0 0 40px 457px;
+				}
+			}
+		}
+		.orid_chal_lf_img {
+		}
+		.orid_chal_lf_bott {
+			text-align: right;
+			margin: 60px 0 0 70px;
+			width: 405px;
+			.orid_chal_lf__bott_h2 {
+				@include stand_set_txt("SF Pro Display Regular", 36px, 43px, $st_txt_color);
+				font-weight: 500;
+			}
+			.orid_chal_lf_bott_txt {
+				@include stand_set_txt("SF Pro Display Regular", 14px, 17px, $st_txt_color);
+				padding: 20px 0 0px 0;
+			}
+			.orid_chal_lf_bott_btn {
+				height: 35px;
+				width: 150px;
+				@include stand_set_txt("SF Pro Display Regular", 18px, 19px, $st_txt_color);
+				@include btn_set(none,  none, $st_txt_color);
+				@extend %btn_txt_weight;
+				margin: 20px 0 0 0;
+				&:active {
+					color: grey;
+				}
+			}		
+		}
+	}
+	.orid_chal_right {
+		.adaptivny-slayder {
+			position: relative;
+			max-width: 685px;
+			margin: 0 0 0 185px;
+		  }
+		  
+		  .adaptivny-slayder input[name="kadoves"] {
+			display: none;
+		  }
+		  
+		  .kadoves {
+			position: absolute;
+			left: 0;
+			z-index: 1; //кнопки поверх фото//
+			bottom: 20px;
+			text-align: center; 
+			width: 100%;
+		  }
+		  
+		  .kadoves label {
+			display: inline-block;
+			width: 15px; //размер точек-переключателей//
+			height: 15px; //размер точек-переключателей//
+			cursor: pointer;
+			margin: 0 3px; //расстояние между точками//
+			border-radius: 50%;
+			border: 7px solid rgba(255, 255, 255, 0.55);
+			background-color: rgba(255, 255, 255, 0.55);
+		  }
+		  
+		  #slaid1:checked~.kadoves label[for="slaid1"] {
+			background-color: white;
+		  }
+		  
+		  #slaid2:checked~.kadoves label[for="slaid2"] {
+			background-color: white;
+		  }
+		  
+		  #slaid3:checked~.kadoves label[for="slaid3"] {
+			background-color: white;
+		  }
+		  
+		  .adaptivny-slayder-lasekun {
+			overflow: hidden;
+			 
+		  }
+		  
+		  .abusteku-deagulus {
+			display: flex;
+			width: 100%;
+			transition: all 0.5s;
+		  }
+		  
+		  .abusteku-deagulus img {
+			width: 100%;
+			flex-shrink:0;
+		  }
+		  
+		  #slaid1:checked~adaptivny-slayder-lasekun abusteku-deagulus {
+			transform: translate(0);
+		  }
+		  
+		  #slaid2:checked~.adaptivny-slayder-lasekun .abusteku-deagulus {
+			transform: translateX(-100%);
+		  }
+		  
+		  #slaid3:checked~.adaptivny-slayder-lasekun .abusteku-deagulus {
+			transform: translateX(-200%);
+		  }
+	}
+}
+
+
+
+
+
+.footer {
+	margin: 175px 0 0 0;
+	height: 100px;
+
+	.footer_links {
+		@include flex_time (flex, row, center, center );
+		flex-direction: row;
+		.footer_mark {
+			@include stand_set_txt("SF Pro Display Regular", 16px, 19px, rgba(1, 1, 1, 0.37));
+			margin: 0 650px 0 0;
+		}	
+		.footer_links_txt {
+			@include stand_set_txt("SF Pro Display Regular", 16px, 19px, rgba(0, 0, 0, 0.9));
+			margin: 0 90px 0 -100px;
+		}
+		.footer_links_instagram {
+			@include stand_set_txt("SF Pro Display Regular", 16px, 19px, rgba(0, 0, 0, 0.9));
+			text-decoration: underline;
+			font-weight: 500;
+			margin: 0 30px 0 0;
+			&:active {
+				color: grey;
+			}
+		}
+		.footer_links_linkedin {
+			@include stand_set_txt("SF Pro Display Regular", 16px, 19px, rgba(0, 0, 0, 0.9));
+			text-decoration: underline;
+			font-weight: 500;
+			&:active {
+				color: grey;
+			}
+		}
+	}
+}
+

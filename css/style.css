@@ -1,0 +1,842 @@
+@charset "UTF-8";
+* {
+  /* * указывает что это идет обращение ко всему html доку*/
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+*, *:before, *:after {
+  /*меняет подсчет ширины блока чтобы было проще верстать*/
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+:focus, :active {
+  outline: none;
+}
+
+/*убираются линии обводки у некоторрых браузеров*/
+a:focus, a:active {
+  outline: none;
+}
+
+nav, footer, header, aside {
+  display: block;
+}
+
+/*Это делает популярные теги блочными*/
+html, body {
+  /*уравнивает поведение шрифтов и элекмонтов для разных браузеров. Прим - запрещ 
+    увеличен шрифта на айфонах*/
+  height: 100%;
+  width: 100%;
+  font-size: 100%;
+  line-height: 1;
+  font-size: 14px;
+  -ms-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+input, button, textarea {
+  font-family: inherit;
+}
+
+/*чтобы теги наследовали семейства шрифта,
+ они по умолчанию этого не делают */
+/*параметры разным тегам которые убирают особенноэтих тегов в разных браузерах,
+отступы лишние декторативные элементы, отступы*/
+input::-ms-clear {
+  display: none;
+}
+
+/*Убирает в поле ввода крестик в IE*/
+button {
+  cursor: pointer;
+}
+
+button::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+
+/*Убирает лишние отступы и пробелы в частности и в кнопках браузера firefox*/
+a, a:visited {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+ul li {
+  list-style: none;
+}
+
+img {
+  vertical-align: top;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-size: inherit;
+  font-weight: 400;
+}
+
+/*Обнуляем заголовки*/
+/*-------------------------*/
+@font-face {
+  font-family: 'SF Pro Display Regular';
+  font-style: normal;
+  font-weight: normal;
+  src: local("SF Pro Display Regular"), url("SFPRODISPLAYREGULAR.woff") format("woff");
+}
+
+@font-face {
+  font-family: 'SF Pro Display Ultralight Italic';
+  font-style: normal;
+  font-weight: normal;
+  src: local("SF Pro Display Ultralight Italic"), url("SFPRODISPLAYULTRALIGHTITALIC.woff") format("woff");
+}
+
+@font-face {
+  font-family: 'SF Pro Display Thin Italic';
+  font-style: normal;
+  font-weight: normal;
+  src: local("SF Pro Display Thin Italic"), url("SFPRODISPLAYTHINITALIC.woff") format("woff");
+}
+
+@font-face {
+  font-family: 'SF Pro Display Light Italic';
+  font-style: normal;
+  font-weight: normal;
+  src: local("SF Pro Display Light Italic"), url("SFPRODISPLAYLIGHTITALIC.woff") format("woff");
+}
+
+@font-face {
+  font-family: 'SF Pro Display Medium';
+  font-style: normal;
+  font-weight: normal;
+  src: local("SF Pro Display Medium"), url("SFPRODISPLAYMEDIUM.woff") format("woff");
+}
+
+@font-face {
+  font-family: 'SF Pro Display Semibold Italic';
+  font-style: normal;
+  font-weight: normal;
+  src: local("SF Pro Display Semibold Italic"), url("SFPRODISPLAYSEMIBOLDITALIC.woff") format("woff");
+}
+
+@font-face {
+  font-family: 'SF Pro Display Bold';
+  font-style: normal;
+  font-weight: normal;
+  src: local("SF Pro Display Bold"), url("SFPRODISPLAYBOLD.woff") format("woff");
+}
+
+@font-face {
+  font-family: 'SF Pro Display Heavy Italic';
+  font-style: normal;
+  font-weight: normal;
+  src: local("SF Pro Display Heavy Italic"), url("SFPRODISPLAYHEAVYITALIC.woff") format("woff");
+}
+
+@font-face {
+  font-family: 'SF Pro Display Black Italic';
+  font-style: normal;
+  font-weight: normal;
+  src: local("SF Pro Display Black Italic"), url("SFPRODISPLAYBLACKITALIC.woff") format("woff");
+}
+
+.about_us_text .about_us_h2 {
+  font-weight: 550;
+}
+
+.about_us_text .about_us_txt {
+  font-weight: 400;
+}
+
+.about_us_text .about_us_btn, .first_project .first_project_text .first_project_txt, .first_project .first_project_text .first_project_btn, .second_project .second_project_text .second_project_txt, .second_project .second_project_text .second_project_btn, .last_project .last_project_text_top .last_project_text_top_txt, .last_project .last_project_bottom .last_project_text .last_project_btn, .orid_chal .orid_chal_lf .orid_chal_lf_bott .orid_chal_lf_bott_btn {
+  font-weight: 500;
+}
+
+.container {
+  padding: 0 auto;
+  margin: 0 auto;
+  width: 1440px;
+  max-width: 1440px;
+}
+
+.header {
+  width: 1440px;
+  height: 900px;
+  background-image: url(../image/Top_boots.png);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  padding: 0 auto;
+  margin: 0 auto;
+  max-width: 1440px;
+}
+
+.header .header_background .menu {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: none;
+      -ms-flex-align: none;
+          align-items: none;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 26px 0 0 25px;
+}
+
+.header .header_background .menu .menu-burger .menu-btn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: absolute;
+  top: 20px;
+  right: 255px;
+  width: 40px;
+  height: 26px;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.header .header_background .menu .menu-burger .menu-btn > span,
+.header .header_background .menu .menu-burger .menu-btn > span::before,
+.header .header_background .menu .menu-burger .menu-btn > span::after {
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background-color: #FFFFFF;
+  -webkit-transition-duration: .25s;
+          transition-duration: .25s;
+}
+
+.header .header_background .menu .menu-burger .menu-btn > span::before {
+  content: '';
+  top: -8px;
+}
+
+.header .header_background .menu .menu-burger .menu-btn > span::after {
+  content: '';
+  top: 8px;
+}
+
+.header .header_background .menu .menu-burger .menubox {
+  display: block;
+  position: fixed;
+  visibility: hidden;
+  top: 0;
+  right: -100%;
+  width: 225px;
+  height: 100%;
+  margin: 0;
+  padding: 80px 0;
+  list-style: none;
+  background-color: #FFFFFF;
+  -webkit-box-shadow: 1px 0px 6px rgba(0, 0, 0, 0.2);
+          box-shadow: 1px 0px 6px rgba(0, 0, 0, 0.2);
+  -webkit-transition-duration: .25s;
+          transition-duration: .25s;
+}
+
+.header .header_background .menu .menu-burger .menu-item {
+  display: block;
+  padding: 12px 24px;
+  color: #333;
+  font-family: 'Roboto', sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  text-decoration: none;
+  -webkit-transition-duration: .25s;
+          transition-duration: .25s;
+}
+
+.header .header_background .menu .menu-burger .menu-item:hover {
+  background-color: #CFD8DC;
+}
+
+.header .header_background .menu .menu-burger #menu-toggle {
+  opacity: 0;
+}
+
+.header .header_background .menu .menu-burger #menu-toggle:checked ~ .menu-btn > span {
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+
+.header .header_background .menu .menu-burger #menu-toggle:checked ~ .menu-btn > span::before {
+  top: 0;
+  -webkit-transform: rotate(0);
+          transform: rotate(0);
+}
+
+.header .header_background .menu .menu-burger #menu-toggle:checked ~ .menu-btn > span::after {
+  top: 0;
+  -webkit-transform: rotate(90deg);
+          transform: rotate(90deg);
+}
+
+.header .header_background .menu .menu-burger #menu-toggle:checked ~ .menubox {
+  visibility: visible;
+  right: 0;
+}
+
+.about_us {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: none;
+      -ms-flex-align: none;
+          align-items: none;
+  -webkit-box-pack: none;
+      -ms-flex-pack: none;
+          justify-content: none;
+}
+
+.about_us_img_top {
+  margin: 70px 80px 0 0;
+}
+
+.about_us_text {
+  margin: 60px 0px 0 0;
+  width: 405px;
+}
+
+.about_us_text .about_us_h2 {
+  font-family: "SF Pro Display Regular";
+  font-size: 36px;
+  line-height: 43px;
+  color: #000000;
+  margin: 0 0 15px 0;
+}
+
+.about_us_text .about_us_txt {
+  font-family: "SF Pro Display Regular";
+  font-size: 14px;
+  line-height: 17px;
+  color: #000000;
+  margin: 0 0 27px 0;
+}
+
+.about_us_text .about_us_btn {
+  height: 35px;
+  width: 120px;
+  font-family: "SF Pro Display Regular";
+  font-size: 18px;
+  line-height: 19px;
+  color: #000000;
+  border-radius: none;
+  background: #FFFFFF;
+  color: #000000;
+}
+
+.about_us_text .about_us_btn:active {
+  color: grey;
+}
+
+.about_us_img_bottom {
+  width: 679px;
+  height: 350px;
+  position: relative;
+  left: 760px;
+  top: -80px;
+}
+
+.first_project {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background-color: #000000;
+  height: 750px;
+  margin: 36px 0 0 0;
+}
+
+.first_project .first_project_text {
+  text-align: right;
+  margin: -240px 80px 0 125px;
+}
+
+.first_project .first_project_text .first_project_txt {
+  font-family: "SF Pro Display Regular";
+  font-size: 17px;
+  line-height: 19px;
+  color: #FFFFFF;
+  width: 405px;
+}
+
+.first_project .first_project_text .first_project_txt:first-child {
+  margin: 265px 0 217px 0;
+}
+
+.first_project .first_project_text .first_project_txt:nth-child(4) {
+  font-family: "SF Pro Display Regular";
+  font-size: 14px;
+  line-height: 17px;
+  color: #FFFFFF;
+}
+
+.first_project .first_project_text .first_project_h2 {
+  font-family: "SF Pro Display Regular";
+  font-size: 36px;
+  line-height: 43px;
+  color: #FFFFFF;
+  font-weight: 300;
+  margin: 15px 0 20px 0;
+}
+
+.first_project .first_project_text .first_project_btn {
+  height: 35px;
+  width: 150px;
+  font-family: "SF Pro Display Regular";
+  font-size: 18px;
+  line-height: 19px;
+  color: #FFFFFF;
+  border-radius: none;
+  background: #000000;
+  color: #FFFFFF;
+  margin: 15px 0 0 0;
+}
+
+.first_project .first_project_text .first_project_btn:active {
+  color: grey;
+}
+
+.first_project .first_project_img {
+  margin: 23px 0 0 0;
+}
+
+.second_project {
+  background-image: url(../image/Project_title_02.png);
+  background-repeat: no-repeat;
+  width: 1440px;
+  height: 1130px;
+}
+
+.second_project .second_project_text {
+  width: 405px;
+  margin: 0px 0 0 93px;
+  padding: 345px 0 0 0;
+}
+
+.second_project .second_project_text .second_project_txt {
+  font-family: "SF Pro Display Regular";
+  font-size: 17px;
+  line-height: 19px;
+  color: #FFFFFF;
+}
+
+.second_project .second_project_text .second_project_txt:nth-child(2) {
+  margin: 15px 0 0 0;
+}
+
+.second_project .second_project_text .second_project_txt:nth-child(4) {
+  font-family: "SF Pro Display Regular";
+  font-size: 14px;
+  line-height: 17px;
+  color: #FFFFFF;
+  font-weight: 500;
+}
+
+.second_project .second_project_text .second_project_h2 {
+  font-family: "SF Pro Display Regular";
+  font-size: 36px;
+  line-height: 43px;
+  color: #FFFFFF;
+  font-weight: 300;
+  margin: 25px 0 25px 0;
+}
+
+.second_project .second_project_text .second_project_btn {
+  height: 35px;
+  width: 150px;
+  font-family: "SF Pro Display Regular";
+  font-size: 18px;
+  line-height: 19px;
+  color: #FFFFFF;
+  border-radius: none;
+  background: none;
+  color: #FFFFFF;
+  margin: 15px 0 0 -10px;
+}
+
+.second_project .second_project_text .second_project_btn:active {
+  color: grey;
+}
+
+.second_project .second_project_player_btn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-family: "SF Pro Display Regular";
+  font-size: 18px;
+  line-height: 19px;
+  color: #FFFFFF;
+  float: right;
+  margin: 185px 37px 0 0;
+}
+
+.second_project .second_project_player_btn .second_project_player_btn_one {
+  color: #FFFFFF;
+}
+
+.second_project .second_project_player_btn .second_project_player_btn_one:active {
+  color: grey;
+}
+
+.second_project .second_project_player_btn .second_project_player_btn_two {
+  color: #FFFFFF;
+}
+
+.second_project .second_project_player_btn .second_project_player_btn_two:active {
+  color: grey;
+}
+
+.last_project {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-direction: column;
+      flex-direction: column;
+  margin: -145px 0 0 0;
+}
+
+.last_project .last_project_text_top {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: 0 405px 32px 0;
+}
+
+.last_project .last_project_text_top .last_project_text_top_txt {
+  font-family: "SF Pro Display Regular";
+  font-size: 18px;
+  line-height: 19px;
+  color: #000000;
+}
+
+.last_project .last_project_text_top .last_project_text_top_txt:first-child {
+  padding: 0 85px 0 0;
+}
+
+.last_project .last_project_bottom {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.last_project .last_project_bottom .last_project_text {
+  text-align: right;
+}
+
+.last_project .last_project_bottom .last_project_text .last_project_text_h2 {
+  font-family: "SF Pro Display Regular";
+  font-size: 36px;
+  line-height: 43px;
+  color: #000000;
+  font-weight: 500;
+  padding: 270px 5px 0px 0;
+}
+
+.last_project .last_project_bottom .last_project_text .last_project_text_txt {
+  font-family: "SF Pro Display Regular";
+  font-size: 14px;
+  line-height: 17px;
+  color: #000000;
+  padding: 20px 0 0px 0;
+  margin: 0 0 0 130px;
+}
+
+.last_project .last_project_bottom .last_project_text .last_project_btn {
+  height: 35px;
+  width: 150px;
+  font-family: "SF Pro Display Regular";
+  font-size: 18px;
+  line-height: 19px;
+  color: #000000;
+  border-radius: none;
+  background: none;
+  color: #000000;
+  margin: 20px 0 0 0;
+}
+
+.last_project .last_project_bottom .last_project_text .last_project_btn:active {
+  color: grey;
+}
+
+.last_project .last_project_bottom .last_project_img {
+  padding: 0 0 0 80px;
+}
+
+.orid_chal {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: none;
+      -ms-flex-align: none;
+          align-items: none;
+  -webkit-box-pack: none;
+      -ms-flex-pack: none;
+          justify-content: none;
+  padding: 170px 0 0 0;
+}
+
+.orid_chal .orid_chal_lf .orid_chal_lf_top_text .orid_chal_lf_top_txt {
+  font-family: "SF Pro Display Regular";
+  font-size: 18px;
+  line-height: 19px;
+  color: #000000;
+  padding: 0 0 70px 360px;
+}
+
+.orid_chal .orid_chal_lf .orid_chal_lf_top_text .orid_chal_lf_top_txt:first-child {
+  padding: 0 0 40px 457px;
+}
+
+.orid_chal .orid_chal_lf .orid_chal_lf_bott {
+  text-align: right;
+  margin: 60px 0 0 70px;
+  width: 405px;
+}
+
+.orid_chal .orid_chal_lf .orid_chal_lf_bott .orid_chal_lf__bott_h2 {
+  font-family: "SF Pro Display Regular";
+  font-size: 36px;
+  line-height: 43px;
+  color: #000000;
+  font-weight: 500;
+}
+
+.orid_chal .orid_chal_lf .orid_chal_lf_bott .orid_chal_lf_bott_txt {
+  font-family: "SF Pro Display Regular";
+  font-size: 14px;
+  line-height: 17px;
+  color: #000000;
+  padding: 20px 0 0px 0;
+}
+
+.orid_chal .orid_chal_lf .orid_chal_lf_bott .orid_chal_lf_bott_btn {
+  height: 35px;
+  width: 150px;
+  font-family: "SF Pro Display Regular";
+  font-size: 18px;
+  line-height: 19px;
+  color: #000000;
+  border-radius: none;
+  background: none;
+  color: #000000;
+  margin: 20px 0 0 0;
+}
+
+.orid_chal .orid_chal_lf .orid_chal_lf_bott .orid_chal_lf_bott_btn:active {
+  color: grey;
+}
+
+.orid_chal .orid_chal_right .adaptivny-slayder {
+  position: relative;
+  max-width: 685px;
+  margin: 0 0 0 185px;
+}
+
+.orid_chal .orid_chal_right .adaptivny-slayder input[name="kadoves"] {
+  display: none;
+}
+
+.orid_chal .orid_chal_right .kadoves {
+  position: absolute;
+  left: 0;
+  z-index: 1;
+  bottom: 20px;
+  text-align: center;
+  width: 100%;
+}
+
+.orid_chal .orid_chal_right .kadoves label {
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  cursor: pointer;
+  margin: 0 3px;
+  border-radius: 50%;
+  border: 7px solid rgba(255, 255, 255, 0.55);
+  background-color: rgba(255, 255, 255, 0.55);
+}
+
+.orid_chal .orid_chal_right #slaid1:checked ~ .kadoves label[for="slaid1"] {
+  background-color: white;
+}
+
+.orid_chal .orid_chal_right #slaid2:checked ~ .kadoves label[for="slaid2"] {
+  background-color: white;
+}
+
+.orid_chal .orid_chal_right #slaid3:checked ~ .kadoves label[for="slaid3"] {
+  background-color: white;
+}
+
+.orid_chal .orid_chal_right .adaptivny-slayder-lasekun {
+  overflow: hidden;
+}
+
+.orid_chal .orid_chal_right .abusteku-deagulus {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+.orid_chal .orid_chal_right .abusteku-deagulus img {
+  width: 100%;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+}
+
+.orid_chal .orid_chal_right #slaid1:checked ~ adaptivny-slayder-lasekun abusteku-deagulus {
+  -webkit-transform: translate(0);
+          transform: translate(0);
+}
+
+.orid_chal .orid_chal_right #slaid2:checked ~ .adaptivny-slayder-lasekun .abusteku-deagulus {
+  -webkit-transform: translateX(-100%);
+          transform: translateX(-100%);
+}
+
+.orid_chal .orid_chal_right #slaid3:checked ~ .adaptivny-slayder-lasekun .abusteku-deagulus {
+  -webkit-transform: translateX(-200%);
+          transform: translateX(-200%);
+}
+
+.footer {
+  margin: 175px 0 0 0;
+  height: 100px;
+}
+
+.footer .footer_links {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  flex-direction: row;
+}
+
+.footer .footer_links .footer_mark {
+  font-family: "SF Pro Display Regular";
+  font-size: 16px;
+  line-height: 19px;
+  color: rgba(1, 1, 1, 0.37);
+  margin: 0 650px 0 0;
+}
+
+.footer .footer_links .footer_links_txt {
+  font-family: "SF Pro Display Regular";
+  font-size: 16px;
+  line-height: 19px;
+  color: rgba(0, 0, 0, 0.9);
+  margin: 0 90px 0 -100px;
+}
+
+.footer .footer_links .footer_links_instagram {
+  font-family: "SF Pro Display Regular";
+  font-size: 16px;
+  line-height: 19px;
+  color: rgba(0, 0, 0, 0.9);
+  text-decoration: underline;
+  font-weight: 500;
+  margin: 0 30px 0 0;
+}
+
+.footer .footer_links .footer_links_instagram:active {
+  color: grey;
+}
+
+.footer .footer_links .footer_links_linkedin {
+  font-family: "SF Pro Display Regular";
+  font-size: 16px;
+  line-height: 19px;
+  color: rgba(0, 0, 0, 0.9);
+  text-decoration: underline;
+  font-weight: 500;
+}
+
+.footer .footer_links .footer_links_linkedin:active {
+  color: grey;
+}
